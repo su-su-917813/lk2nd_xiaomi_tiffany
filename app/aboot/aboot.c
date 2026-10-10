@@ -5542,7 +5542,15 @@ void aboot_init(const struct app_descriptor *app)
 	/* 在启动 UEFI 前，通过 RPM 给 VDDCX 上电 */
 	{
 		extern int lk2nd_vddcx_enable(void);
+		extern int lk2nd_sdcc2_keepalive(void);
+		extern int lk2nd_sdcc2_ldo_enable(void);
+		extern int lk2nd_sdcc2_gpio_init(void);
+		dprintf(INFO, "Calling sdcc2 keepalive...\n");
 		lk2nd_vddcx_enable();
+		lk2nd_sdcc2_ldo_enable();
+		lk2nd_sdcc2_gpio_init();
+		lk2nd_sdcc2_keepalive();
+		dprintf(INFO, "sdcc2 keepalive returned\n");
 	}
 #endif
 

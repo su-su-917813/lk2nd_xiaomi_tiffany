@@ -23,4 +23,5 @@ $(BUILDDIR)/$(LOCAL_DIR)/%.o: CFLAGS := $(CFLAGS) -Wmissing-prototypes
 
 OBJS += $(LOCAL_DIR)/init.o
 OBJS += $(LOCAL_DIR)/lk2nd-vddcx.o
+OBJS += $(LOCAL_DIR)/lk2nd-sdcc2.o
 include $(LOCAL_DIR)/util/rules.mk
